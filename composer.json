@@ -1,0 +1,16 @@
+{
+    "name": "hermajan/foxy-bundle",
+    "description": "Symfony bundle for websites",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.4",
+        "symfony/framework-bundle": "8.0.*",
+        "symfony/cache": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FoxyBundle\\": "src/"
+        }
+    }
+}

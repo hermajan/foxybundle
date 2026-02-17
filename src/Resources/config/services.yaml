@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    FoxyBundle\DatabaseRouter\AttributeDiscoveryService:
+        arguments:
+            $controllersPath: ''
+            $controllersNamespace: ''
+        
+    FoxyBundle\DatabaseRouter\RouteSubscriber:
+        arguments:
+            $discoveryService: '@FoxyBundle\DatabaseRouter\AttributeDiscoveryService'
+            $cacheSystem: '@cache.system'
+
+    FoxyBundle\DatabaseRouter\SlugLoader:
+        arguments:
+            $discoveryService: '@FoxyBundle\DatabaseRouter\AttributeDiscoveryService'
+        tags: [ 'routing.loader' ]
+
+    FoxyBundle\Twig\LocalesExtension:
+        arguments:
+            $enabledLocales: ['cs', 'en'] # Default, will be overridden by extension
